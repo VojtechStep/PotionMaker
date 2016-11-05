@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="PotionMaker.PotionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PotionMaker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Image Source="Assets\alchemist_room.jpg" Grid.ColumnSpan="2" Grid.RowSpan="2" Stretch="UniformToFill" />
+        <Grid AllowDrop="True" DragOver="Grid_DragOver" Drop="DropOnKettle" Grid.ColumnSpan="2">
+            <Image Grid.Row="0" HorizontalAlignment="Center" Margin="0 50 0 -50" Source="Assets\Kettle.png" Stretch="Uniform" />
+        </Grid>
+        <Image x:Name="FlameImage" Height="50" Margin="10" Source="Assets\flame.png" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Center" ManipulationMode="TranslateY" ManipulationDelta="FlameManipulationDelta">
+            <Image.RenderTransform>
+                <ScaleTransform />
+            </Image.RenderTransform>
+        </Image>
+        <StackPanel x:Name="TempIndicator" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Foreground="White" Text="Current Temperature: " />
+                <TextBlock VerticalAlignment="Center" Foreground="White" x:Name="TempEnumerator" Text="0" Margin="5" />
+                <TextBlock VerticalAlignment="Center" Foreground="White" Text="°C" Margin="5" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Foreground="White" Text="Min Expected Temperature: " />
+                <TextBlock VerticalAlignment="Center" Foreground="White" x:Name="MinTempEnumerator" Text="0" Margin="5" />
+                <TextBlock VerticalAlignment="Center" Foreground="White" Text="°C" Margin="5" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Foreground="White" Text="Max Expected Temperature: " />
+                <TextBlock VerticalAlignment="Center" Foreground="White" x:Name="MaxTempEnumerator" Text="0" Margin="5" />
+                <TextBlock VerticalAlignment="Center" Foreground="White" Text="°C" Margin="5" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
